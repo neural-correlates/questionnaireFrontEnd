@@ -3,9 +3,7 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 
-export default function BasicRating() {
-    const [value, setValue] = React.useState(0);
-  
+export default function BasicRating(props) {
     return (
       <Box
         sx={{
@@ -13,7 +11,7 @@ export default function BasicRating() {
         }}
       >
         <Typography component="legend" sx={{margin: '20px', marginLeft: '10px'}}>Question 2</Typography>
-        <Rating name="no-value" value={value} onChange={(event, newValue) => {setValue(newValue);}} sx={{marginBottom: '30px'}}/>
+        <Rating name="no-value" value={props.value} onChange={props.setValue} sx={{marginBottom: '30px'}}/>
       </Box>
     );
   }
