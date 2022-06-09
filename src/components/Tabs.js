@@ -7,9 +7,15 @@ import {
   Typography,
   Button,
   Container,
-  TextField
+  TextField,
+  Checkbox,
+  FormGroup,
+  FormControlLabel,
+  Grid
 } from '@mui/material';
 import BasicRating from './BasicRating';
+import OutlinedCard from './OutlineCard';
+import ContinuousSlider from './ContinousSlider';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -63,9 +69,24 @@ export default function BasicTabs() {
       </Box>
       <TabPanel value={value} index={0}>
         <Container>
-        <Typography component="legend" sx={{margin: '20px', marginLeft: '10px'}}>field 1</Typography>
-        <TextField id="outlined-basic" label="write your answer briefly ... " variant="outlined" sx={{width: '50%', marginBottom: '30px'}}/>
-        <BasicRating />
+        <Grid container spacing={0}>
+          <Grid item xs={8}>
+            <Typography component="legend" sx={{margin: '20px', marginLeft: '10px'}}>Question 1</Typography>
+            <TextField id="outlined-basic" label="write your answer briefly ... " variant="outlined" sx={{width: '90%', marginBottom: '30px'}}/>
+            <BasicRating />
+            <Typography component="legend" sx={{margin: '20px', 'marginLeft': '10px'}}>Question 3</Typography>
+            <FormGroup sx={{marginBottom: '50px'}}>
+              <FormControlLabel control={<Checkbox />} label="Label" />
+              <FormControlLabel control={<Checkbox />} label="Label" />
+              <FormControlLabel control={<Checkbox />} label="Label" />
+            </FormGroup>
+            <Typography component="legend" sx={{margin: '20px', marginLeft: '10px'}}>Question 4</Typography>
+            <ContinuousSlider />
+          </Grid>
+          <Grid item xs={4}>
+            <OutlinedCard />
+          </Grid>
+        </Grid>
         </Container>
       </TabPanel>
       <TabPanel value={value} index={1}>

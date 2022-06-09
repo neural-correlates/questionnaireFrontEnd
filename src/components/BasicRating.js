@@ -12,8 +12,8 @@ export default function BasicRating() {
           '& > legend': { mt: 2 },
         }}
       >
-        <Typography component="legend" sx={{margin: '20px', marginLeft: '10px'}}>field 2</Typography>
-        <Rating name="no-value" value={value} onChange={(event, newValue) => {setValue(newValue);}}/>
+        <Typography component="legend" sx={{margin: '20px', marginLeft: '10px'}}>Question 2</Typography>
+        <Rating name="no-value" value={value} onChange={(event, newValue) => {setValue(newValue);}} sx={{marginBottom: '30px'}}/>
       </Box>
     );
   }
