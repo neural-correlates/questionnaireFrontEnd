@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 const card = (
   <React.Fragment>
     <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+      <Typography sx={{ fontSize: 28 }} color="text.secondary" gutterBottom>
         Why this survey?
       </Typography>
       <Typography variant="body2">

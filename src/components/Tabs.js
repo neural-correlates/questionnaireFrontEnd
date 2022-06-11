@@ -16,6 +16,7 @@ import {
 import BasicRating from './BasicRating';
 import OutlinedCard from './OutlineCard';
 import ContinuousSlider from './ContinousSlider';
+import BasicSelect from './BasicSelect';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -56,8 +57,10 @@ export default class BasicTabs extends React.Component {
       rating: 0,
       tabValue: 0,
       shortAns: '',
-      sliderVal: 0
+      sliderVal: 0,
+      selectVal: 'option 1'
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   updateTab = (event, newValue) => {
     this.setState({
@@ -79,6 +82,15 @@ export default class BasicTabs extends React.Component {
       sliderVal: newValue
     })
   }
+  updateSelectVal = (event, newValue) => {
+    this.setState({
+      selectVal: event.target.value
+    })
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.state);
+  }
   render() {
     return (
       <Box sx={{ width: '100%' }}>
@@ -98,9 +110,12 @@ export default class BasicTabs extends React.Component {
               <TextField id="outlined-basic" label="write your answer briefly ... " variant="outlined" 
                 sx={{width: '90%', marginBottom: '30px'}}
                 onChange={this.updateShortAns}/>
-              <BasicRating value={this.state.rating} setValue={this.updateRating}/>
+              <BasicRating value={this.state.rating} setValue={this.updateRating} sx={{marginLeft: '20px'}}/>
               <Typography component="legend" sx={{margin: '20px', marginLeft: '10px'}}>Question 4</Typography>
-              <ContinuousSlider value={this.state.sliderVal} setValue={this.updateSliderVal}/>
+              <ContinuousSlider value={this.state.sliderVal} setValue={this.updateSliderVal} sx={{marginLeft: '5px', marginBottom: '30px'}}/>
+              <Typography component="legend" sx={{margin: '20px', marginLeft: '10px'}}>Question 5</Typography>
+              <BasicSelect value={this.state.selectVal} setValue={this.updateSelectVal} sx={{width: '90%'}}/>
+              <Button variant="contained" color="success" onClick={this.handleSubmit} sx={{marginTop: '60px'}}>Submit</Button>
             </Grid>
             <Grid item xs={4}>
               <OutlinedCard />
@@ -109,7 +124,9 @@ export default class BasicTabs extends React.Component {
           </Container>
         </TabPanel>
         <TabPanel value={this.state.tabValue} index={1}>
-          Item Two
+          <Container>
+            Item 2
+          </Container>
         </TabPanel>
       </Box>
     )

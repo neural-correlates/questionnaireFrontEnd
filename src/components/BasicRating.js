@@ -7,7 +7,7 @@ export default function BasicRating(props) {
     return (
       <Box
         sx={{
-          '& > legend': { mt: 2 },
+          '& > legend': { mt: 2 }
         }}
       >
         <Typography component="legend" sx={{margin: '20px', marginLeft: '10px'}}>Question 2</Typography>

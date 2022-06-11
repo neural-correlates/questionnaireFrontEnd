@@ -4,9 +4,9 @@ import Slider from '@mui/material/Slider';
 
 export default function ContinuousSlider(props) {
   return (
-    <Box sx={{ width: 200 }}>
+    <Box sx={{ ...props.sx, width: '90%' }}>
       <Box sx={{width: 100 }}>{props.value}</Box>
-      <Slider defaultValue={props.value} aria-label="Disabled slider" onChange={props.setValue} />
+      <Slider value={props.value} aria-label="Disabled slider" onChange={props.setValue}/>
     </Box>
   );
 }
