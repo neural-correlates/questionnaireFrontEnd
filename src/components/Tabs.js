@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import axios from 'axios';
 import { 
   Typography,
   Button,
@@ -88,8 +89,19 @@ export default class BasicTabs extends React.Component {
     })
   }
   handleSubmit(e) {
+    let uri = 'https://neuralcorr.herokuapp.com';
     e.preventDefault();
     console.log(this.state);
+    axios.post(uri + '/responses', {
+      data:{
+        rating: this.state.rating,
+        shortAns: this.state.shortAns,
+        sliderVal: this.state.sliderVal,
+        selectVal: this.state.selectVal
+      }
+    }).then(res => {
+      alert('Successfully submitted');
+    })
   }
   render() {
     return (
