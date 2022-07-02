@@ -30,7 +30,7 @@ export default class TimedQuestion extends Component {
                 <Container sx={{padding: '50px'}}>
                 <Typography variant="h6">{this.props.question}</Typography>
                     <Box component="span" sx={{width: 150, position: 'relative', top: '0px', left: '70%'}}>
-                        <h4>Time spent on this question: {this.state.time}</h4>
+                        <h4>Time spent on this question: {this.state.time} s</h4>
                     </Box>
                     <div style={{position: "relative", top: "0px", left: "75%"}}>
                         <Button sx={{margin: '5px'}} variant="contained" color="primary">Next</Button>
