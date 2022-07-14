@@ -11,6 +11,7 @@ export default function Questions({questions}) {
     const [canPrev, setCanPrev] = useState(false);
 
     useEffect(() => {
+        console.log(questions)
         if (questionNum === questions.length - 1) {
             setCanSubmit(true);
             setCanNext(false);
@@ -36,7 +37,7 @@ export default function Questions({questions}) {
         }
         else {
             setQuestionNum(questionNum + 1);
-            setQuestion(questions[questionNum]);
+            setQuestion(questions[questionNum + 1]);
         }
     }
     const prevQuestion = () => {
@@ -46,7 +47,7 @@ export default function Questions({questions}) {
         }
         else {
             setQuestionNum(questionNum - 1);
-            setQuestion(questions[questionNum]);
+            setQuestion(questions[questionNum - 1]);
         } 
     }
     const handleSubmit = (e) => {
