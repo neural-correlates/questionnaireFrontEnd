@@ -21,7 +21,7 @@ import BasicRating from './BasicRating';
 import OutlinedCard from './OutlineCard';
 import ContinuousSlider from './ContinousSlider';
 import BasicSelect from './BasicSelect';
-import TimedQuestion from './TimedQuestion';
+import Questions from './Questions';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -63,7 +63,7 @@ export default class BasicTabs extends React.Component {
       tabValue: 0,
       shortAns: '',
       sliderVal: 0,
-      selectVal: 'option 1'
+      selectVal: 'option 1',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -108,6 +108,13 @@ export default class BasicTabs extends React.Component {
     })
   }
   render() {
+    const questions = [
+      {question: 'How do you feel about this question?', answer: 'rating', type: 'basicRating'},
+      {question: 'who is your favourite person?', options: ['option 1', 'option 2', 'option 3'], type: 'select'},
+      {question: 'Why is benedict cucumber hot?', options: ['because it is', 'because it is', 'because it is', 'because it is'], type: 'select'},
+      {question: 'Crister ROnaldo? SUI?', answer: 'Crister Ronaldo is the best player in the world', type: 'shortAns'},
+      {question: 'How do you feel?', answer: 'I feel good', type: 'shortAns'},
+    ]
     return (
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -147,9 +154,8 @@ export default class BasicTabs extends React.Component {
         </TabPanel>
         <TabPanel value={this.state.tabValue} index={2}>
           <Container>
-            <TimedQuestion question='who is your favorite person?'/>
+            <Questions questions={questions} />
             <Box sx={{"border": "1 px solid"}}>
-              Timed Question
             </Box>
           </Container>
         </TabPanel>
