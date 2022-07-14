@@ -1,11 +1,32 @@
 .questions-container {
-    border: 2px solid black;
+    border: 2px solid #f2f2f2f2;
     border-radius: 5px;
     padding: 10px;
+    min-height: 500px;
+    position: relative;
 }
 
-.submit-button {
-    margin-left: 30px;
-    margin-bottom: 20px;
-    padding: 10px 20px;
+/* bottom right align to parent div */
+.questions-actions {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 10px;
+    margin-right: 50px;
+}
+
+form {
+    padding: 30px;
+    min-height: inherit;
+}
+
+.qButton {
+    font-weight: 100;
+    font-size: x-large;
+    font-style: bold;
+    width: 50px;
 }

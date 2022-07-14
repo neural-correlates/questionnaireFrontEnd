@@ -28,15 +28,11 @@ export default class TimedQuestion extends Component {
     render() {
         return (
             <Box>
-                <Container sx={{padding: '50px'}}>
+                <Container>
                 <Typography variant="h6">{this.props.questionNumber}. {this.props.question}</Typography>
-                    <Box component="span" sx={{width: 150, position: 'relative', top: '0px', left: '70%'}}>
+                    <Box component="span">
                         <h4>Time spent on this question: {this.state.time} s</h4>
                     </Box>
-                    <div style={{position: "relative", top: "0px", left: "75%"}}>
-                        <Button sx={{margin: '5px'}} variant="contained" color="primary" onClick={this.props.next}>Next</Button>
-                        <Button sx={{margin: '5px'}} variant="contained" color="primary" onClick={this.props.prev}>Previous</Button>
-                    </div>
                 </Container>
             </Box>
         );

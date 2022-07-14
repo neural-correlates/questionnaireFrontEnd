@@ -7,13 +7,25 @@ export default function Questions({questions}) {
     const [questionNum, setQuestionNum] = useState(0);
     const [question, setQuestion] = useState(questions[0]);
     const [canSubmit, setCanSubmit] = useState(false);
+    const [canNext, setCanNext] = useState(true);
+    const [canPrev, setCanPrev] = useState(false);
 
     useEffect(() => {
         if (questionNum === questions.length - 1) {
             setCanSubmit(true);
+            setCanNext(false);
+            setCanPrev(true);
         }
         else{
             setCanSubmit(false);
+            if(questionNum === 0){
+                setCanPrev(false);
+                setCanNext(true);
+            }
+            else{
+                setCanPrev(true);
+                setCanNext(true);
+            }
         }
     })
 
@@ -42,9 +54,15 @@ export default function Questions({questions}) {
         console.log('submitted');        
     }
     return(
-        <form onSubmit={handleSubmit} className='questions-container'>
-            <TimedQuestion question={question.question} questionNumber={questionNum + 1} next={nextQuestion} prev={prevQuestion} time={0}/>
-            <Button className='submit-button' variant="contained" color='success' type="submit" disabled={!canSubmit}>Submit</Button>
-        </form>
+        <div className='questions-container'>
+            <form onSubmit={handleSubmit}>
+                <TimedQuestion question={question.question} questionNumber={questionNum + 1} next={nextQuestion} prev={prevQuestion} time={0}/>
+                <div className='questions-actions'>
+                    <Button className='submit-button' variant="contained" color='success' type="submit" disabled={!canSubmit}>Submit</Button>
+                    <Button variant="contained" color="primary" className='qButton' disabled={!canPrev} onClick={prevQuestion}>{'<'}</Button>
+                    <Button variant="contained" color="primary" className='qButton' disabled={!canNext} onClick={nextQuestion}>{'>'}</Button>
+                </div>
+            </form>
+        </div>
     )
 }
